@@ -10,6 +10,17 @@ void nhapMang(vector<int> &arr) {
     }
 }
 
+bool checkOdd(int nN) {
+	while (nN) {
+		int nX = nN % 10;
+		if (nX % 2 == 0) {
+			return false;
+		}
+		nN /= 10;
+	}
+	return true;
+}
+
 int main() {
     int nN;    
     cin >> nN;
@@ -19,7 +30,7 @@ int main() {
     
 	int max = 0;
 	for (int i = 0; i < nN; i++) {
-		bool check = arr[i] % 2 != 0 && arr[i] > max;
+		bool check = checkOdd(arr[i]) && arr[i] > max;
 		if (check) max = arr[i];
 	}
 
