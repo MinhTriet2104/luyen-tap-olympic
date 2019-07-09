@@ -4,13 +4,13 @@
 #include <vector>
 using namespace std;
 
-void nhapMang(vector<int> &arr) {
+void nhapMang(vector<long long> &arr) {
     for (int i = 0; i < arr.size(); i++) {
         cin >> arr[i];
     }
 }
 
-bool checkOdd(int nN) {
+bool checkOdd(long long nN) {
 	while (nN) {
 		int nX = nN % 10;
 		if (nX % 2 == 0) {
@@ -25,10 +25,11 @@ int main() {
     int nN;    
     cin >> nN;
     
-    vector<int> arr(nN);
+    vector<long long> arr(nN);
     nhapMang(arr);
     
-	int max = 0;
+	long long max = LLONG_MIN;
+	cout << "MAX: " << max << endl;
 	for (int i = 0; i < nN; i++) {
 		bool check = checkOdd(arr[i]) && arr[i] > max;
 		if (check) max = arr[i];
