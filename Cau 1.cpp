@@ -36,6 +36,7 @@ int main() {
 		if (checkOdd(arr[i])) {
 			max = arr[i];
 			position = i;
+			break;
 		}
 	}
 
