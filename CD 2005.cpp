@@ -9,6 +9,25 @@ struct Thung {
 	int c;
 };
 
+void quickSort(vector<Thung> &arr, int l, int r) {
+	int mid = (l + r) / 2;
+    int i = l;
+    int j = r;
+        
+    while (i <= j) {
+        while (arr[i].c > arr[mid].c) i++;
+        while (arr[j].c < arr[mid].c) j--;
+        if (i <= j) {
+            swap(arr[i], arr[j]);
+            i++;
+            j--;
+        }
+    }
+        
+    if (l < j) quickSort(arr, l, j);
+    if (i < r) quickSort(arr, i, r);
+}
+
 int main() {
 	ifstream docFile;
 	ofstream ghiFile;
@@ -32,14 +51,8 @@ int main() {
 	}
 	docFile.close();
 
-	// Sap xep giam dan theo suc chua
-	for (int i = 0; i < nN - 1; i++) {
-		for (int j = i + 1; j < nN; j++) {
-			if (thung[j].c > thung[i].c) {
-				swap(thung[i], thung[j]);
-			}
-		}
-	}
+	// Sap xep giam dan theo suc chua bang quick sort
+	quickSort(thung, 0, nN - 1);
 
 	int nuocThieu = tongC - tongB; // Lay ra so nuoc thieu
 	int count = 0;
