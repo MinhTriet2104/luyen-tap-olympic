@@ -5,16 +5,8 @@
 #include <algorithm>
 using namespace std;
 
-int countZero(string s) {
-	return count(s.begin(), s.end(), '0');
-}
-
-int countOne(string s) {
-	return count(s.begin(), s.end(), '1');
-}
-
+// Check chuoi s1 co phai con s2 hay khong
 bool checkChuoiCon(string s1, string s2) {
-	// s1 se la con cua s2
 	int i = 0; // index cua s1
 	int j = 0; // index cua s2
 	int count = 0; // kiem tra da duyet qua het i
@@ -50,17 +42,13 @@ int main() {
 	}
 	docFile.close();
 
-	for (int i = 0; i < iN; i++) {
-		cout << sieuMa[i] << " Zero: " << countZero(sieuMa[i]) << " One: " << countOne(sieuMa[i]) << endl;
-	}
-
 	int min = iN; // Chua vi tri nho nhat
 	bool check = false; // Kiem tra su ton tai cua chuoi con
 
 	for (int i = 0; i < iN ; i++) {
 		for (int j = i + 1; j < iN; j++) {
-			// Kiem tra chuoi nao la chuoi con
-			// Roi kiem tra su ton tai cua chuoi con trong chuoi cha theo thu tu tang dan
+			// Kiem tra chuoi nao ngan hon
+			// Roi kiem tra su ton tai cua chuoi ngan trong chuoi dai theo thu tu tang dan
 			if (sieuMa[i].size() > sieuMa[j].size()) {
 				if (checkChuoiCon(sieuMa[j], sieuMa[i])) {
 					check = true;
