@@ -43,7 +43,7 @@ int main() {
 				ghiFile << " "; // Neu khong phai so cuoi cung thi cach ra
 			}
 		}
-		ghiFile << endl;
+		if (i != y - 1) ghiFile << endl; // Neu dong cuoi thi khong xuong dong
 	}
 
 	docFile.close();
